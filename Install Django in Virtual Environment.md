@@ -3,7 +3,7 @@ To install Django in a virtual environment, follow these steps:
 ### 1. Install Python and `pip` (if not already installed)
 Make sure you have Python and `pip` installed on your system. You can check by running the following commands:
 ```bash
-python --version
+python3 --version
 pip --version
 ```
 
