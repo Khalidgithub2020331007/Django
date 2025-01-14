@@ -1,51 +1,92 @@
-The issue lies in the path provided to the `render` function in your `payments/views.py` file. Specifically:
-
-```python
-return render(request, 'templates/payments1.html')
-```
-
-The `render` function is looking for a file named `templates/payments1.html`, but that is incorrect. The file `payments1.html` is in the `templates` directory, so you only need to pass the relative path **from the `templates` directory**, not including the `templates` directory itself.
+To install **Database Browser for SQLite** (also known as **DB Browser for SQLite**) on a Linux system, follow these steps based on your distribution:
 
 ---
 
-### **Correct Code**
-Change this line in `payments/views.py`:
+### **For Debian/Ubuntu-based Distributions**
+1. **Update your package list**:
+   ```bash
+   sudo apt update
+   ```
 
-```python
-return render(request, 'payments1.html')
-```
+2. **Install DB Browser for SQLite**:
+   ```bash
+   sudo apt install sqlitebrowser
+   ```
 
----
-
-### **Why It Happens**
-- **The `TEMPLATE_DIR` setting in `settings.py`** (`BASE_DIR/templates`) already tells Django to look inside the `templates` folder. Adding `templates/` in the `render` path causes Django to look for `templates/templates/payments1.html`, which doesn't exist.
-
----
-
-### **Final Directory Setup**
-If `payments1.html` is inside `/templates`, ensure the structure is correct:
-```
-/home/khalid/Academic/3rd_Year_2nd_Semester/Project_350/resource/back_end/plan60/templates/payments1.html
-```
-
-If you're organizing templates by app, place it like this:
-```
-/home/khalid/Academic/3rd_Year_2nd_Semester/Project_350/resource/back_end/plan60/templates/payments/payments1.html
-```
-Then, update `views.py` to:
-```python
-return render(request, 'payments/payments1.html')
-```
+3. **Run DB Browser for SQLite**:
+   ```bash
+   sqlitebrowser
+   ```
 
 ---
 
-### **Restart the Server**
-After making the corrections, restart your development server to ensure the changes take effect:
+### **For Fedora-based Distributions**
+1. **Install DB Browser for SQLite**:
+   ```bash
+   sudo dnf install sqlitebrowser
+   ```
+
+2. **Run DB Browser for SQLite**:
+   ```bash
+   sqlitebrowser
+   ```
+
+---
+
+### **For Arch-based Distributions (e.g., Manjaro)**
+1. **Install DB Browser for SQLite** using `pacman`:
+   ```bash
+   sudo pacman -S sqlitebrowser
+   ```
+
+2. **Run DB Browser for SQLite**:
+   ```bash
+   sqlitebrowser
+   ```
+
+---
+
+### **For OpenSUSE**
+1. **Install DB Browser for SQLite**:
+   ```bash
+   sudo zypper install sqlitebrowser
+   ```
+
+2. **Run DB Browser for SQLite**:
+   ```bash
+   sqlitebrowser
+   ```
+
+---
+
+### **If It's Not Available in Your Package Manager**
+If the package isn't available or you want the latest version, you can use the **official AppImage** or **build it from source**.
+
+#### **Using AppImage**
+1. **Download the AppImage**:
+   ```bash
+   wget https://github.com/sqlitebrowser/sqlitebrowser/releases/latest/download/DB.Browser.for.SQLite-x86_64.AppImage
+   ```
+
+2. **Make it executable**:
+   ```bash
+   chmod +x DB.Browser.for.SQLite-x86_64.AppImage
+   ```
+
+3. **Run the AppImage**:
+   ```bash
+   ./DB.Browser.for.SQLite-x86_64.AppImage
+   ```
+
+#### **Build from Source**
+If you prefer building from source, follow the instructions on their [GitHub page](https://github.com/sqlitebrowser/sqlitebrowser).
+
+---
+
+### **Verify Installation**
+To confirm the installation, you can check the version:
 ```bash
-python3 manage.py runserver
-```
+sqlitebrowser --version
+``` 
 
----
-
-### **Expected Outcome**
-Visiting `http://127.0.0.1:8000/pay/tem/` should now correctly render the `payments1.html` template without any `TemplateDoesNotExist` errors.
+Enjoy working with SQLite databases! 😊
