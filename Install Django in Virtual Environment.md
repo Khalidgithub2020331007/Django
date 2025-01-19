@@ -16,7 +16,7 @@ pip install virtualenv
 ### 3. Create a Virtual Environment
 Navigate to your project directory and create a virtual environment by running:
 ```bash
-virtualenv venv
+python3 -m venv myenv
 ```
 This will create a new directory named `venv` where the virtual environment will be stored.
 
