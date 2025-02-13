@@ -1,3 +1,8 @@
+```
+python3 -m venv myenv
+source myenv/bin/activate
+```
+
 To create a virtual environment specifically for a Django project, follow these steps:
 
 ---
