@@ -1,6 +1,7 @@
 ```
 python3 -m venv myenv
 source myenv/bin/activate
+pip install djangorestframework
 ```
 
 To create a virtual environment specifically for a Django project, follow these steps:
